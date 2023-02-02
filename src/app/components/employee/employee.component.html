@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="container-fluid h-100">
+    <div class="row p-3 h-50">
+        <div class="col-5">
+            <ag-grid-angular class="ag-theme-alpine-dark fullgrid" [rowData]="rowData" [columnDefs]="columnDefs"
+                [pagination]="true" (rowDoubleClicked)="rowDoubleClicked($event)">
+            </ag-grid-angular>
+        </div>
+        <div class="col-7">
+            <form [formGroup]="formEmployee">
+                <div class="mb-12">
+                    <label for="exampleFormControlInput1" class="form-label disabled">ID</label>
+                    <input type="text" class="form-control" formControlName="id" [disabled]="true" [(ngModel)]="id">
+                </div>
+                <div class="mb-12">
+                    <label for="exampleFormControlInput1" class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name" [(ngModel)]="name">
+                </div>
+                <div class="mb-12">
+                    <label for="exampleFormControlInput1" class="form-label">Position</label>
+                    <input type="text" class="form-control" formControlName="position" [(ngModel)]="position">
+                </div>
+                <div class="mb-12">
+                    <label for="exampleFormControlInput1" class="form-label">Salary</label>
+                    <input type="number" class="form-control" formControlName="salary" [(ngModel)]="salary">
+                </div>
+                <div class="mb-12">
+                    <label for="exampleFormControlInput1" class="form-label">Photo</label>
+                    <input type="text" class="form-control" formControlName="photo" [(ngModel)]="picture">
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end p-3">
+                    <button type="button" class="btn btn-danger m-1" (click)="save('delete')">Eliminar</button>                    
+                    <button type="button" class="btn btn-warning m-1" (click)="save('patch')">Actualizar</button>
+                    <button type="button" class="btn btn-primary m-1" (click)="save('post')">Gurardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
